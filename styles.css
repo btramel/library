@@ -1,0 +1,173 @@
+/* color scheme variables */
+:root {
+    --body: #ffebcd;  /* blanched almond */
+    --font: #393b44;
+    --border: #666;
+    --header: #d6e0f0;
+    --title-font: #282a33;
+    --book-card: #5f9ea0;
+    --btn-green: #abf79c;
+    --btn-green-hover: #9ae68b;
+    --btn-green-active: #89d57a;
+    --btn-red: #da9797;
+    --btn-red-hover: #c98686;
+    --btn-red-active: #b87575;
+    --btn-light-green: #d3ffcd;
+    --btn-light-green-hover: #c2eebc;
+    --btn-light-green-active: #b1ddab;
+    --btn-light-red: #ffe8e8;
+    --btn-light-red-hover: #eed7d7;
+    --btn-light-red-active: #ddc6c6;
+    --modal: #d6e0f0;
+    --modal-border: #282a33;
+  }
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: var(--body);
+    color: var(--font);
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    /* footer support */
+    margin-bottom: 100px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.submit {
+    margin-top: 10px;
+}
+
+.close-button {
+    position: absolute; 
+    left: 90%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: 1.5em;
+    transition: transform .5s ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.spinscale {
+    transition: transform .5s ease-in-out;
+
+}
+
+.spinscale:hover {
+    transform: rotate(90deg);
+}
+
+.close-button:hover {
+    transform: scale(150%);
+}
+
+.modal {
+    position:fixed; /* doesn't move when scrolling */
+    top: 50%;       /* the following 3 properties center the modal div */
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* modal toggled off by default with scale(0) */
+    transition: 200ms ease-in-out;
+    border: 1px var(--modal-border);
+    border-radius: 10px;
+    z-index: 10;
+    background-color: var(--modal);
+    width: 350px;
+    max-width: 80vw;
+    text-align: center;
+    padding: 20px 10px;
+    line-height: 1.2;
+    height: auto;
+    max-height: 70vh;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1); /* to toggle on the modal via javascript */
+}
+
+.text-input {
+    font-size: inherit;
+    font-family: inherit;
+    width: 200px;
+    max-width: 90%;
+    cursor: text;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+#verifyread {
+    cursor: pointer;
+}
+
+.submit, .add-book {
+    font-size: 1.5em;
+    background-color: var(--btn-green);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    padding: 5px 15px;
+}
+
+.library-container {
+    width: 100vw;
+    display: grid;
+    /* grid-template-columns:  minmax(100px, 1fr)
+                            repeat(auto-fill, 1fr) 20%; */
+    gap: 25px;
+}
+
+.card {
+    background-color: var(--book-card);
+}
+
+/* modal background properties */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, .5);
+    transition: 200ms ease-in-out;
+    pointer-events: none;
+    opacity: 0;
+}
+
+ #overlay.active { /* not active by default */
+    pointer-events: all;
+    opacity: 1;
+}

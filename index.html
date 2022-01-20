@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <title>Library</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Your Little Library</h1>
+        </div>
+    </header>
+    
+    <button data-modal-target="#modal" class="add-book">Add Book</button> <!-- data selector added for javascript -->
+    
+    <div class="modal" id="modal">
+        <div class="modal-body">
+            <form action="">
+                <!-- form header -->
+                <div class="modal-header">
+                    <h2>Add new book</h2>
+                    <button data-close-button class="close-button"><div class="spinscale">&times;</div></button> <!-- data selector added for javascript -->
+                </div>
+
+                <!-- form inputs -->
+                <input type="text" class="text-input" minlength="1" placeholder="Title"><br>
+                <input type="text" class="text-input" minlength="1" placeholder="Author"><br>
+                <input type="text" class="text-input" min="1" placeholder="Pages"><br>
+                Have you read it? <input type="checkbox" name="verifyread" id="verifyread"><br>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="library-container">
+        <!-- populate new divs here -->
+    </div>
+
+    <div class="" id="overlay"></div>
+
+    <footer>Made with love by <a href="http://github.com/btramel" target="_blank">Brad Tramel</a>.</footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
