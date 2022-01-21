@@ -141,6 +141,32 @@ button {
     transform: translate(-50%, -50%) scale(1); /* to toggle on the modal via javascript */
 }
 
+#libraryContainer {
+    display: grid;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    gap: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    border: 1px var(--modal-border);
+    background-color: var(--modal);
+    color: var(--modal-font);
+    z-index: 9;
+    border-radius: 10px;
+    /* width: 200px; */
+    /* max-width: 20vw; */
+    text-align: center;
+    padding: 20px 10px;
+    line-height: 1.2;
+    height: 400px;
+    max-height: 30vh;
+}
+
 .text-input {
     font-size: inherit;
     font-family: inherit;
