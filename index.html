@@ -18,23 +18,22 @@
         </div>
     </header>
     
-    <button data-modal-target="#modal" class="add-book">Add Book</button> <!-- data selector added for javascript -->
+    <button data-modal-target="#modal" id="add-book" class="add-book">Add Book</button> <!-- data selector added for javascript -->
     
     <div class="modal" id="modal">
         <div class="modal-body">
-            <form action="">
+            <form action="" id="form">
                 <!-- form header -->
                 <div class="modal-header">
                     <h2>Add new book</h2>
                     <button data-close-button class="close-button"><div class="spinscale">&times;</div></button> <!-- data selector added for javascript -->
                 </div>
-
                 <!-- form inputs -->
-                <input type="text" class="text-input" minlength="1" placeholder="Title"><br>
-                <input type="text" class="text-input" minlength="1" placeholder="Author"><br>
-                <input type="text" class="text-input" min="1" placeholder="Pages"><br>
+                <input type="text" id="title" class="text-input" minlength="1" placeholder="Title"><br>
+                <input type="text" id="author" class="text-input" minlength="1" placeholder="Author"><br>
+                <input type="text" id="pages" class="text-input" min="1" placeholder="Pages"><br>
                 Have you read it? <input type="checkbox" name="verifyread" id="verifyread"><br>
-                <button type="submit" class="submit">Submit</button>
+                <button data-close-button type="button" id="submit-book" class="submit">Submit</button>
             </form>
         </div>
     </div>
