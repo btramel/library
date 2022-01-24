@@ -16,7 +16,7 @@ const overlay = document.getElementById('overlay');
 
 openModalButtons.forEach(button => {
     button.addEventListener('click', () => {
-        const modal = document.querySelector(button.dataset.modalTarget)
+        const modal = document.querySelector(button.dataset.modalTarget);
         openModal(modal)
     })
 })
@@ -40,6 +40,7 @@ function openModal(modal) {
     if (modal === null) return
     modal.classList.add('active')
     overlay.classList.add('active')
+    document.getElementById('title').focus();
 }
 
 function closeModal(modal) {
@@ -48,23 +49,47 @@ function closeModal(modal) {
     overlay.classList.remove('active')
 }
 
-// var node = document.createElement("LI");                 // Create a <li> node
-// var textnode = document.createTextNode("Water");         // Create a text node
-// node.appendChild(textnode);                              // Append the text to <li>
-// document.getElementById("myList").appendChild(node);     // Append <li> to <ul> with id="myList" 
-
 function addBook () {
-    // get form values
-    let title = document.getElementById('title').value
-    let author = document.getElementById('author').value
-    let pages = document.getElementById('pages').value
-    let read = document.getElementById('verifyread').checked
 
     // create card nodes
     const libraryContainer = document.getElementById('libraryContainer')
     let node = document.createElement('div');
     node.className = 'card';
-    let textnode = document.createTextNode('new book!')
+        
+
+    const title = document.getElementById('title').value
+    let titleNode = document.createElement('h1');
+    titleNode.innerHTML = `${title}`;
+    titleNode.contentEditable = 'true';
+
+    const author = document.getElementById('author').value
+    let authorNode = document.createElement('p');
+    authorNode.innerHTML = `${author}`;
+    authorNode.contentEditable = 'true';
+
+     
+    const pages = document.getElementById('pages').value;
+    let pageNode = document.createElement('p');
+    pageNode.innerHTML = `${pages}`;
+    pageNode.contentEditable = 'true';
+
+    // create close button
+    let closeButtonNode = document.createElement('button');
+    closeButtonNode.classList.add('close-button-card'); 
+    let spinnyDiv = document.createElement('div');
+    spinnyDiv.innerHTML = `&times;`;
+    spinnyDiv.classList.add('spinscale');
+    closeButtonNode.appendChild(spinnyDiv);
+    closeButtonNode.onclick = function removeCard() {
+        libraryContainer.removeChild(node); }
+
+    // changes depending on if read was checked or not
+    let read;
+    if ( document.getElementById('verifyread').checked ? read = 'read' : read = 'not read' );
+
+    let readNode = document.createElement('p');
+    readNode.innerHTML = `${read}`;
+    readNode.contentEditable = 'true';
 
     // create new book obj
     const book = new Book(title, author, pages, read);
@@ -77,9 +102,12 @@ function addBook () {
     libraryContainer.append(node);
 
     // add content to card
-    node.appendChild(textnode);
-
-}
+    node.appendChild(titleNode);
+    node.appendChild(authorNode);
+    node.appendChild(pageNode);
+    node.appendChild(readNode);
+    node.appendChild(closeButtonNode);
+    };
 
 const form = document.querySelector('#form')
 const submitBook = document.querySelector('#submit-book')

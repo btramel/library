@@ -14,17 +14,9 @@
     --btn-green-hover: #9ae68b;
     --btn-green-active: #89d57a;
 
-    --btn-red: #da9797;
-    --btn-red-hover: #c98686;
-    --btn-red-active: #b87575;
-
     --btn-light-green: #d3ffcd;
     --btn-light-green-hover: #c2eebc;
     --btn-light-green-active: #b1ddab;
-
-    --btn-light-red: #ffe8e8;
-    --btn-light-red-hover: #eed7d7;
-    --btn-light-red-active: #ddc6c6;
   }
 
 *,
@@ -48,7 +40,7 @@ body {
     font-size: 1.5em;
     text-align: center;
     /* footer support */
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 h1 {
@@ -57,21 +49,17 @@ h1 {
 
 a {
     text-decoration: none;
-    /* color: var(--btn-green); */
     color: black;
-    transition: transform 500ms ease-in-out;
 }
 
 a:visited
 a:hover {
-    /* color: var(--btn-green); */
     color: black;
-    transform: scale(150%);
 }
 
 a:hover {
     color: black;
-    /* color: var(--btn-light-green-hover); */
+    font-size: 110%;
 }
 
 button {
@@ -79,6 +67,14 @@ button {
     font-size: inherit;
     padding: 3px;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--btn-green-hover);
+}
+
+button:active {
+    background-color: var(--btn-green-active);
 }
 
 .modal-header {
@@ -97,16 +93,42 @@ button {
     left: 90%;
     border: none;
     outline: none;
+    font-size: 1.5em;
+    transition: transform .5s ease-in-out;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+.close-button:hover {
+    background-color: transparent;
+}
+
+.close-button:active {
+    background-color: none;
+}
+
+.close-button-card {
+    border: none;
+    outline: none;
     background-color: inherit;
     font-size: 1.5em;
     transition: transform .5s ease-in-out;
     cursor: pointer;
     font-weight: bold;
+    background-color: transparent;
+}
+
+.close-button-card:hover {
+    background-color: transparent;
+}
+
+.close-button-card:active {
+    background-color: transparent;
 }
 
 .spinscale {
     transition: transform .5s ease-in-out;
-
 }
 
 .spinscale:hover {
@@ -146,25 +168,24 @@ button {
     width: 100%;
     height: auto;
     padding: 20px;
-    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 1rem;
 }
 
 .card {
+    color: var(--modal-font);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-around;
     border: 1px var(--modal-border);
     background-color: var(--modal);
     color: var(--modal-font);
     z-index: 9;
     border-radius: 10px;
-    /* width: 200px; */
-    /* max-width: 20vw; */
     text-align: center;
     padding: 20px 10px;
-    line-height: 1.2;
-    height: 400px;
-    max-height: 30vh;
+    min-height: 300px;
+    
 }
 
 .text-input {
